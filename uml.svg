@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2200" height="1484" viewBox="0 0 2200 1484">
+<rect width="100%" height="100%" fill="white"/>
+<defs><marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10" fill="none" stroke="#26364a" stroke-width="1.5"/></marker></defs>
+<text x="60" y="55" font-family="sans-serif" font-size="30" font-weight="bold">Вариант 17 — Облачное хранилище (часть 1)</text>
+<rect x="60" y="100" width="1330" height="788" fill="#fff" stroke="#26364a" stroke-width="2"/>
+<rect x="61" y="101" width="1328" height="51" fill="#e8edf4"/>
+<text x="725.0" y="135" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="bold">CloudStorage</text>
+<path d="M60 152 H1390" stroke="#26364a"/>
+<path d="M60 450 H1390" stroke="#26364a"/>
+<text x="74" y="180" font-family="monospace" font-size="18">- DEFAULT_TARIFF : String {static} {readOnly}</text>
+<text x="74" y="208" font-family="monospace" font-size="18">- DEFAULT_FREQUENCY : int {static} {readOnly}</text>
+<text x="74" y="236" font-family="monospace" font-size="18">- BASE_MULTIPLIER : int {static} {readOnly}</text>
+<text x="74" y="264" font-family="monospace" font-size="18">- MEDIUM_MULTIPLIER : int {static} {readOnly}</text>
+<text x="74" y="292" font-family="monospace" font-size="18">- LARGE_MULTIPLIER : int {static} {readOnly}</text>
+<text x="74" y="320" font-family="monospace" font-size="18">- name : String {readOnly}</text>
+<text x="74" y="348" font-family="monospace" font-size="18">- basePrice : double {readOnly}</text>
+<text x="74" y="376" font-family="monospace" font-size="18">- tariff : String {readOnly}</text>
+<text x="74" y="404" font-family="monospace" font-size="18">- appliedOption : BackupOption</text>
+<text x="74" y="432" font-family="monospace" font-size="18">- backupFrequency : int</text>
+<text x="74" y="478" font-family="monospace" font-size="18">+ CloudStorage(String name, double basePrice)</text>
+<text x="74" y="506" font-family="monospace" font-size="18">+ CloudStorage(String name, double basePrice, String tariff)</text>
+<text x="74" y="534" font-family="monospace" font-size="18">+ CloudStorage(String name, double basePrice, String tariff, BackupOption appliedOption)</text>
+<text x="74" y="562" font-family="monospace" font-size="18">+ calculateFinalPrice() : double</text>
+<text x="74" y="590" font-family="monospace" font-size="18">+ calculateFinalPrice(BackupOption option) : double</text>
+<text x="74" y="618" font-family="monospace" font-size="18">+ calculateFinalPrice(BackupOption option, int frequency) : double</text>
+<text x="74" y="646" font-family="monospace" font-size="18">+ enableBackup(BackupOption option) : double</text>
+<text x="74" y="674" font-family="monospace" font-size="18">+ enableBackup(BackupOption option, int frequency) : double</text>
+<text x="74" y="702" font-family="monospace" font-size="18">- storagePrice() : BigDecimal</text>
+<text x="74" y="730" font-family="monospace" font-size="18">- tariffMultiplier(String tariff) : int {static}</text>
+<text x="74" y="758" font-family="monospace" font-size="18">+ getName() : String</text>
+<text x="74" y="786" font-family="monospace" font-size="18">+ getBasePrice() : double</text>
+<text x="74" y="814" font-family="monospace" font-size="18">+ getTariff() : String</text>
+<text x="74" y="842" font-family="monospace" font-size="18">+ getAppliedOption() : BackupOption</text>
+<text x="74" y="870" font-family="monospace" font-size="18">+ getBackupFrequency() : int</text>
+<rect x="1510" y="100" width="630" height="256" fill="#fff" stroke="#26364a" stroke-width="2"/>
+<rect x="1511" y="101" width="628" height="51" fill="#e8edf4"/>
+<text x="1825.0" y="135" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="bold">BackupOption</text>
+<path d="M1510 152 H2140" stroke="#26364a"/>
+<path d="M1510 226 H2140" stroke="#26364a"/>
+<text x="1524" y="180" font-family="monospace" font-size="18">- name : String {readOnly}</text>
+<text x="1524" y="208" font-family="monospace" font-size="18">- price : double</text>
+<text x="1524" y="254" font-family="monospace" font-size="18">+ BackupOption(String name, double price)</text>
+<text x="1524" y="282" font-family="monospace" font-size="18">+ getName() : String</text>
+<text x="1524" y="310" font-family="monospace" font-size="18">+ getPrice() : double</text>
+<text x="1524" y="338" font-family="monospace" font-size="18">+ setPrice(double price) : void</text>
+<rect x="460" y="1150" width="1300" height="284" fill="#fff" stroke="#26364a" stroke-width="2"/>
+<rect x="461" y="1151" width="1298" height="51" fill="#e8edf4"/>
+<text x="1110.0" y="1185" text-anchor="middle" font-family="sans-serif" font-size="26" font-weight="bold">CloudManager</text>
+<path d="M460 1202 H1760" stroke="#26364a"/>
+<path d="M460 1276 H1760" stroke="#26364a"/>
+<text x="474" y="1230" font-family="monospace" font-size="18">- totalOrdersCount : int {static}</text>
+<text x="474" y="1258" font-family="monospace" font-size="18">- totalRevenue : double {static}</text>
+<text x="474" y="1304" font-family="monospace" font-size="18">+ registerPayment(double amount) : void {static}</text>
+<text x="474" y="1332" font-family="monospace" font-size="18">+ getTotalOrdersCount() : int {static}</text>
+<text x="474" y="1360" font-family="monospace" font-size="18">+ getTotalRevenue() : double {static}</text>
+<text x="474" y="1388" font-family="monospace" font-size="18">+ printGlobalStats() : void {static}</text>
+<text x="474" y="1416" font-family="monospace" font-size="18">+ main(String[] args) : void {static}</text>
+<path d="M1390 240 L1406 232 L1422 240 L1406 248 Z" stroke="#26364a" fill="white" stroke-width="2"/>
+<path d="M1422 240 H1510" stroke="#26364a" stroke-width="2"/>
+<text x="1425" y="220" font-family="sans-serif" font-size="19">0..1</text>
+<path d="M700 1150 V1050 H180 V888" fill="none" stroke="#26364a" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#arrow)"/>
+<text x="230" y="1040" font-family="sans-serif" font-size="20">creates / uses</text>
+<path d="M1760 1220 H2170 V260 H2140" fill="none" stroke="#26364a" stroke-width="2" stroke-dasharray="8 5" marker-end="url(#arrow)"/>
+<text x="1830" y="1205" font-family="sans-serif" font-size="20">creates</text>
+</svg>

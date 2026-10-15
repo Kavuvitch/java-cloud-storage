@@ -1,0 +1,48 @@
+classDiagram
+  class CloudStorage {
+    -String DEFAULT_TARIFF$
+    -int DEFAULT_FREQUENCY$
+    -int BASE_MULTIPLIER$
+    -int MEDIUM_MULTIPLIER$
+    -int LARGE_MULTIPLIER$
+    -String name
+    -double basePrice
+    -String tariff
+    -BackupOption appliedOption
+    -int backupFrequency
+    + CloudStorage(String name, double basePrice)
+    + CloudStorage(String name, double basePrice, String tariff)
+    + CloudStorage(String name, double basePrice, String tariff, BackupOption appliedOption)
+    + calculateFinalPrice() double
+    + calculateFinalPrice(BackupOption option) double
+    + calculateFinalPrice(BackupOption option, int frequency) double
+    + enableBackup(BackupOption option) double
+    + enableBackup(BackupOption option, int frequency) double
+    - storagePrice() BigDecimal
+    - tariffMultiplier(String tariff) int$
+    + getName() String
+    + getBasePrice() double
+    + getTariff() String
+    + getAppliedOption() BackupOption
+    + getBackupFrequency() int
+  }
+  class BackupOption {
+    -String name
+    -double price
+    + BackupOption(String name, double price)
+    + getName() String
+    + getPrice() double
+    + setPrice(double price) void
+  }
+  class CloudManager {
+    -int totalOrdersCount$
+    -double totalRevenue$
+    + registerPayment(double amount) void$
+    + getTotalOrdersCount() int$
+    + getTotalRevenue() double$
+    + printGlobalStats() void$
+    + main(String[] args) void$
+  }
+  CloudStorage "1" o-- "0..1" BackupOption : appliedOption
+  CloudManager ..> CloudStorage : creates / uses
+  CloudManager ..> BackupOption : creates
